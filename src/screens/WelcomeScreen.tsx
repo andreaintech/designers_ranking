@@ -21,6 +21,10 @@ export default function WelcomeScreen() {
         onPress={() => navigation.navigate('LogInSignUpScreen')}
         title="Go to Login"
       />
+      <Button
+        onPress={() => navigation.navigate('PruebaScreen')}
+        title="Go to Prueba"
+      />
     </View>
   )
 }
