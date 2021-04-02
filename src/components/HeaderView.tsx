@@ -46,16 +46,19 @@ export default function HeaderView() {
             borderRadius: 50
         },
         nameText: {
-            fontSize: 24,
+            fontSize: 28,
+            fontWeight: 'bold',
             color: 'white'
         },
         locationText: {
-            fontSize: 12,
+            paddingLeft: '1%',
+            paddingTop: '1%',
+            fontSize: 10,
             color: 'white'
         },
         locationIcon: {
             color: 'white',
-            fontSize: 20
+            fontSize: 18
         },
         followButton: {
             backgroundColor: 'white',
@@ -84,6 +87,10 @@ export default function HeaderView() {
         middleItemView: {
             paddingLeft: '10%',
             paddingRight: '10%'
+        },
+        profileDataView: {
+            paddingTop: '1%',
+            paddingLeft: '3%',
         }
     })
 
@@ -124,17 +131,30 @@ export default function HeaderView() {
                     style={styles.image}
                     source={Images['profile6']}
                 />
-                <View>
-                    <Text style={styles.nameText}>Marry</Text>
-                    <View style={{ flexDirection: 'row' }}>
+                <View style={styles.profileDataView}>
+                    <TouchableOpacity
+                        style={{ paddingBottom: '10%' }}
+                        activeOpacity={0.5}
+                        onPress={() => console.log('asa')}
+                    >
+                        <Text style={styles.nameText}>Marry</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={{ flexDirection: 'row' }}
+                        activeOpacity={0.5}
+                        onPress={() => console.log('asa')}
+                    >
                         <IoniconsIcon
                             name={"location-sharp"}
                             style={styles.locationIcon}
                             onPress={() => console.log('entrega')}
                         />
                         <Text style={styles.locationText}>China Beijing</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
+
+
                 <Button
                     buttonStyle={styles.followButton}
                     titleStyle={styles.followButtonText}

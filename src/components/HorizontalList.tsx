@@ -44,7 +44,7 @@ export default function HorizontalList({
     },
     titleText: {
       fontSize: 30,
-      color: '#66696b',
+      color: '#545454',
       fontWeight: 'bold'
     },
   });
