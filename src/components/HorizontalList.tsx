@@ -4,76 +4,75 @@ import {
   Text,
   View,
   SectionList,
-  Image,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from 'react-native';
 
 export default function HorizontalList({
   data
 }) {
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#121212',
-    },
-    sectionHeader: {
-      fontWeight: '800',
-      fontSize: 18,
-      color: '#f4f4f4',
-      marginTop: 20,
-      marginBottom: 5,
+    containerView: {
+      paddingLeft: '3%',
     },
     item: {
       margin: 10,
       borderWidth: 1,
       width: 150,
       height: 100,
-      // borderRadius: 10
-    },
-    itemPhoto: {
-      width: 200,
-      height: 200,
-      borderRadius: 20
     },
     itemText: {
-      marginTop: 5,
+      marginTop: 2,
       color: 'white',
       alignSelf: 'center',
       fontSize: 18,
       fontWeight: 'bold',
       paddingTop: '20%'
     },
+    itemView: {
+      margin: 7,
+      borderRadius: 15,
+      width: 125,
+      height: 80,
+      shadowOffset: {
+        width: 0,
+        height: 5,
+      },
+      shadowOpacity: 0.27,
+      shadowRadius: 4.65,
+      elevation: 9,
+    },
+    titleText: {
+      fontSize: 30,
+      color: '#66696b',
+      fontWeight: 'bold'
+    },
   });
 
   const ListItem = ({ item }) => {
     return (
-      <View style={{
-        margin: 10,
-        borderRadius: 15,
-        width: 150,
-        height: 100,
-        backgroundColor: item.backgroundColor,
-        shadowColor: item.shadowColor,
-        shadowOffset: {
-          width: 0,
-          height: 5,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-        elevation: 9,
-      }}>
+      <TouchableOpacity
+        style={[styles.itemView, {
+          backgroundColor: item.backgroundColor,
+          shadowColor: item.shadowColor,
+        }]}
+        activeOpacity={0.5}
+        onPress={() => console.log('asa')}
+      >
         <Text style={styles.itemText}>{item.text}</Text>
-      </View>
-    );
-  };
+      </TouchableOpacity>
+    )
+  }
 
   return (
-    <View>
+    <View style={styles.containerView}>
+      <Text style={styles.titleText}>Buckets</Text>
       <SectionList
-        contentContainerStyle={{ paddingHorizontal: 10 }}
+        // contentContainerStyle={}
         stickySectionHeadersEnabled={false}
         sections={data}
         renderSectionHeader={({ section }) => (
+
           <FlatList
             horizontal
             data={section.data}
