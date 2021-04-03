@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Dimensions, TouchableOpacity, Text } from 'react-native'
+import { StyleSheet, View, Dimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 import WavyHeader from '../components/WavyHeader'
 import BodyHeaderView from '../components/BodyHeaderView'
+import BottomHeaderView from '../components/BottomHeaderView'
 
 export default function HeaderView() {
     const navigation = useNavigation()
@@ -14,15 +15,6 @@ export default function HeaderView() {
             justifyContent: 'space-between',
             paddingTop: '1%',
         },
-        bodyHeaderView: {
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-        },
-        bottomHeaderView: {
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            paddingLeft: '30%',
-        },
         menuIcon: {
             color: 'white',
             fontSize: 30
@@ -30,33 +22,6 @@ export default function HeaderView() {
         arrowIcon: {
             color: 'white',
             fontSize: 25,
-        },
-        image: {
-            width: 80,
-            height: 80,
-            borderRadius: 50
-        },
-        nameText: {
-            fontSize: 28,
-            fontWeight: 'bold',
-            color: 'white'
-        },
-        locationText: {
-            paddingLeft: '1%',
-            paddingTop: '1%',
-            fontSize: 10,
-            color: 'white'
-        },
-        locationIcon: {
-            color: 'white',
-            fontSize: 18
-        },
-        followButton: {
-            backgroundColor: 'white',
-            borderRadius: 13,
-            width: '60%',
-            height: '40%',
-            marginTop: '10%',
         },
         followButtonText: {
             color: '#ac63f3',
@@ -124,35 +89,8 @@ export default function HeaderView() {
             </View>
 
             <BodyHeaderView />
+            <BottomHeaderView />
 
-            <View
-                style={styles.bottomHeaderView}
-            >
-                <TouchableOpacity
-                    activeOpacity={0.5}
-                    onPress={() => console.log('asa')}
-                >
-                    <Text style={styles.itemText}>{648}</Text>
-                    <Text style={styles.itemTextTitle}>{'Follow'}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.middleItemView}
-                    activeOpacity={0.5}
-                    onPress={() => console.log('asa')}
-                >
-                    <Text style={styles.itemText}>{7}</Text>
-                    <Text style={styles.itemTextTitle}>{'Bucket'}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    activeOpacity={0.5}
-                    onPress={() => console.log('asa')}
-                >
-                    <Text style={styles.itemText}>{1046}</Text>
-                    <Text style={styles.itemTextTitle}>{'Followers'}</Text>
-                </TouchableOpacity>
-            </View>
         </View>
     )
 }
