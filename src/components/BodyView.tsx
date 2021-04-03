@@ -14,7 +14,7 @@ export default function BodyView() {
         },
         bodyView: {
             backgroundColor: 'white',
-            height: '80%'
+            height: '70%'
         },
         topBodyView: {
             flexDirection: 'column',

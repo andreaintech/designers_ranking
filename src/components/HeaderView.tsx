@@ -1,27 +1,18 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Dimensions, TouchableOpacity, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { Button } from 'react-native-elements'
-import LinearGradient from 'react-native-linear-gradient'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
-import IoniconsIcon from 'react-native-vector-icons/Ionicons'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
-import Images from '../assets/images/Images'
+import WavyHeader from '../components/WavyHeader'
+import BodyHeaderView from '../components/BodyHeaderView'
 
 export default function HeaderView() {
     const navigation = useNavigation()
     const styles = StyleSheet.create({
-        backgroundHeaderView: {
-            height: '30%',
-            paddingTop: '1%',
-            paddingLeft: '5%',
-            paddingRight: '5%',
-        },
         headerView: {
             flexDirection: 'row',
             justifyContent: 'space-between',
-            paddingTop: '2%',
-            paddingBottom: '2%',
+            paddingTop: '1%',
         },
         bodyHeaderView: {
             flexDirection: 'row',
@@ -30,7 +21,7 @@ export default function HeaderView() {
         bottomHeaderView: {
             flexDirection: 'row',
             justifyContent: 'space-evenly',
-            paddingLeft: '30%'
+            paddingLeft: '30%',
         },
         menuIcon: {
             color: 'white',
@@ -65,7 +56,7 @@ export default function HeaderView() {
             borderRadius: 13,
             width: '60%',
             height: '40%',
-            paddingTop: '3%',
+            marginTop: '10%',
         },
         followButtonText: {
             color: '#ac63f3',
@@ -91,7 +82,17 @@ export default function HeaderView() {
         profileDataView: {
             paddingTop: '1%',
             paddingLeft: '3%',
-        }
+        },
+        container: {
+            flex: 1,
+            height: '30%',
+            paddingLeft: '5%',
+            paddingRight: '5%',
+        },
+        svgCurve: {
+            position: 'absolute',
+            width: Dimensions.get('window').width
+        },
     })
 
     const LeftArrow = () => {
@@ -115,52 +116,14 @@ export default function HeaderView() {
     }
 
     return (
-        <LinearGradient start={{ x: 0.3, y: 0.1 }} end={{ x: 1, y: 0 }} colors={['#d667f4', '#c75ef3', '#aa4cf1']}
-            // style={styles.linearGradient}
-            style={styles.backgroundHeaderView}
-        >
+        <View style={styles.container}>
+            <WavyHeader customStyles={styles.svgCurve} />
             <View style={styles.headerView}>
                 <LeftArrow />
                 <RightMenu />
             </View>
 
-            <View
-                style={styles.bodyHeaderView}
-            >
-                <Image
-                    style={styles.image}
-                    source={Images['profile6']}
-                />
-                <View style={styles.profileDataView}>
-                    <TouchableOpacity
-                        style={{ paddingBottom: '10%' }}
-                        activeOpacity={0.5}
-                        onPress={() => console.log('asa')}
-                    >
-                        <Text style={styles.nameText}>Marry</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={{ flexDirection: 'row' }}
-                        activeOpacity={0.5}
-                        onPress={() => console.log('asa')}
-                    >
-                        <IoniconsIcon
-                            name={"location-sharp"}
-                            style={styles.locationIcon}
-                            onPress={() => console.log('entrega')}
-                        />
-                        <Text style={styles.locationText}>China Beijing</Text>
-                    </TouchableOpacity>
-                </View>
-
-
-                <Button
-                    buttonStyle={styles.followButton}
-                    titleStyle={styles.followButtonText}
-                    title="Follow"
-                />
-            </View>
+            <BodyHeaderView />
 
             <View
                 style={styles.bottomHeaderView}
@@ -190,6 +153,6 @@ export default function HeaderView() {
                     <Text style={styles.itemTextTitle}>{'Followers'}</Text>
                 </TouchableOpacity>
             </View>
-        </LinearGradient>
+        </View>
     )
 }

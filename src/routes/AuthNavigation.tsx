@@ -7,6 +7,7 @@ import LogInSignUpScreen from '../screens/LogInSignUpScreen'
 import LogInScreen from '../screens/LogInScreen'
 import SignUpScreen from '../screens/SignUpScreen'
 import PruebaScreen from '../screens/PruebaScreen'
+import PruebaScreen2 from '../screens/PruebaScreen2'
 
 export default function AuthNavigation() {
     const Stack = createStackNavigator()
@@ -59,6 +60,13 @@ export default function AuthNavigation() {
             <Stack.Screen
                 name="PruebaScreen"
                 component={PruebaScreen}
+                options={{
+                    headerShown: false,
+                }}
+            />
+            <Stack.Screen
+                name="PruebaScreen2"
+                component={PruebaScreen2}
                 options={{
                     headerShown: false,
                 }}
