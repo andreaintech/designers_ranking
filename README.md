@@ -1,4 +1,4 @@
-# designers_ranking
+# Designers Ranking App
 This is an UI project made with React Native CLI for a Designers Ranking App
 
 
